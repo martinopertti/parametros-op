@@ -13,10 +13,17 @@
 - La fuente son las proyecciones poblacionales del INE (basadas en los censos de 1996, 2004 y 2011)
 - Las categorías son los 19 departamentos (la data original no estaba desagregada por edad, por lo que incluye menores de 18 años)
 
+![Parámetro de población departamental](plots/region.png)
+
 ### Nivel educativo
 - La fuente son las Encuestas Contínuas de Hogares (ECH) compatibilizadas por el IECON. 
 - La variable utilizada es `bc_edu` (años de educación), recodificada en las siguientes categorías: Primaria o menos; Secundaria y Terciaria 
 
+
+![Parámetro de educación](plots/educacion.png)
+
 ### Voto anterior
 - La fuente es el paquete de R [Boreluy](https://nicolas-schmidt.github.io/Boreluy/)
 - En cada elección se toman todos los partidos con al menos 5% de los votos recibidos, el resto se agrupan junto a los votos en blanco y nulos en la categoría residual (OP-BN)
+
+![Parámetro de voto anterior](plots/voto.png)
