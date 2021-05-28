@@ -325,8 +325,8 @@ ggsave("parametros-op/plots/voto.png",
 base_parametros <- rbind(d_sexedad, d_poblacion, d_edu, d_voto) %>% 
   mutate(parametro = round(parametro / 100, digits = 3))
 
-writexl::write_xlsx(base_parametros, "parametros-op/data/parametros.xlsx")
-save(base_parametros, file = "parametros-op/data/parametros.rda")
+writexl::write_xlsx(base_parametros, "parametros-op/data/data_parametros.xlsx")
+save(base_parametros, file = "parametros-op/data/data_parametros.rda")
 
 
 
