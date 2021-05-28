@@ -7,6 +7,8 @@
 - La fuente son las proyecciones poblacionales del INE (basadas en los censos de 1996, 2004 y 2011)
 - 6 categorías: Hombres de 18 a 39; Mujeres de 18 a 39; Hombres de 40 a 59; Mujeres de 40 a 59; Hombres de 60 o más y Mujeres de 60 o más.
 
+![Parámetro de sexo x edad](plots/sexedad.png)
+
 ### Departamento
 - La fuente son las proyecciones poblacionales del INE (basadas en los censos de 1996, 2004 y 2011)
 - Las categorías son los 19 departamentos (la data original no estaba desagregada por edad, por lo que incluye menores de 18 años)
