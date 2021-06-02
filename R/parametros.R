@@ -1,9 +1,9 @@
 
-## ***************************************************************************
+## **************************************************************************
 ## Construcción de base de parámetros
-## ***************************************************************************
+## **************************************************************************
 
-##  1. Paquetes ==============================================================
+##  1. Paquetes =============================================================
 
 library(tidyverse)
 library(readstata13)
@@ -36,25 +36,25 @@ d_sexedad <- d_sexedad %>%
   filter(edad >= 18,
          anio <= 2020) %>% 
   mutate(categoria = case_when(
-    edad >= 18 & edad <= 39  & sexo == "Hombres" ~ "Hombres de 18 a 39",
-    edad >= 40 & edad <= 59  & sexo == "Hombres" ~ "Hombres de 40 a 59",
-    edad >= 60 & edad <= 110 & sexo == "Hombres" ~ "Hombres de 60 +",
-    edad >= 18 & edad <= 39  & sexo == "Mujeres" ~ "Mujeres de 18 a 39",
-    edad >= 40 & edad <= 59  & sexo == "Mujeres" ~ "Mujeres de 40 a 59",
-    edad >= 60 & edad <= 110 & sexo == "Mujeres" ~ "Mujeres de 60 +",
+    edad >= 18 & edad <= 39  & sexo == "Hombres" ~ "Hombres-18-39",
+    edad >= 40 & edad <= 59  & sexo == "Hombres" ~ "Hombres-40-59",
+    edad >= 60 & edad <= 110 & sexo == "Hombres" ~ "Hombres-60+",
+    edad >= 18 & edad <= 39  & sexo == "Mujeres" ~ "Mujeres-18-39",
+    edad >= 40 & edad <= 59  & sexo == "Mujeres" ~ "Mujeres-40-59",
+    edad >= 60 & edad <= 110 & sexo == "Mujeres" ~ "Mujeres-60+",
   )) %>% 
   group_by(anio, categoria) %>% 
   summarise(personas = sum(personas)) %>% 
   pivot_wider(names_from = categoria, values_from = personas) %>% 
-  mutate(total = `Hombres de 18 a 39` + `Hombres de 40 a 59` + `Hombres de 60 +` + 
-           `Mujeres de 18 a 39` + `Mujeres de 40 a 59` + `Mujeres de 60 +`) %>% 
-  mutate(`Hombres de 18 a 39` = `Hombres de 18 a 39` / total * 100,
-         `Hombres de 40 a 59` = `Hombres de 40 a 59` / total * 100,
-         `Hombres de 60 +` = `Hombres de 60 +` / total * 100,
-         `Mujeres de 18 a 39` = `Mujeres de 18 a 39` / total * 100,
-         `Mujeres de 40 a 59` = `Mujeres de 40 a 59` / total * 100,
-         `Mujeres de 60 +` = `Mujeres de 60 +` / total * 100) %>%
-  pivot_longer(cols = `Hombres de 18 a 39`:`Mujeres de 60 +`, 
+  mutate(total = `Hombres-18-39` + `Hombres-40-59` + `Hombres-60+` + 
+           `Mujeres-18-39` + `Mujeres-40-59` + `Mujeres-60+`) %>% 
+  mutate(`Hombres-18-39` = `Hombres-18-39` / total * 100,
+         `Hombres-40-59` = `Hombres-40-59` / total * 100,
+         `Hombres-60+` = `Hombres-60+` / total * 100,
+         `Mujeres-18-39` = `Mujeres-18-39` / total * 100,
+         `Mujeres-40-59` = `Mujeres-40-59` / total * 100,
+         `Mujeres-60+` = `Mujeres-60+` / total * 100) %>%
+  pivot_longer(cols = `Hombres-18-39`:`Mujeres-60+`, 
                names_to = "categoria", 
                values_to = "parametro") %>% 
   select(-total) %>% 
