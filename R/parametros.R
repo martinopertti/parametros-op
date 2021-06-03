@@ -36,25 +36,25 @@ d_sexedad <- d_sexedad %>%
   filter(edad >= 18,
          anio <= 2020) %>% 
   mutate(categoria = case_when(
-    edad >= 18 & edad <= 39  & sexo == "Hombres" ~ "Hombres-18-39",
-    edad >= 40 & edad <= 59  & sexo == "Hombres" ~ "Hombres-40-59",
-    edad >= 60 & edad <= 110 & sexo == "Hombres" ~ "Hombres-60+",
-    edad >= 18 & edad <= 39  & sexo == "Mujeres" ~ "Mujeres-18-39",
-    edad >= 40 & edad <= 59  & sexo == "Mujeres" ~ "Mujeres-40-59",
-    edad >= 60 & edad <= 110 & sexo == "Mujeres" ~ "Mujeres-60+",
+    edad >= 18 & edad <= 39  & sexo == "Hombres" ~ "Hombres_18_39",
+    edad >= 40 & edad <= 59  & sexo == "Hombres" ~ "Hombres_40_59",
+    edad >= 60 & edad <= 110 & sexo == "Hombres" ~ "Hombres_60_mas",
+    edad >= 18 & edad <= 39  & sexo == "Mujeres" ~ "Mujeres_18_39",
+    edad >= 40 & edad <= 59  & sexo == "Mujeres" ~ "Mujeres_40_59",
+    edad >= 60 & edad <= 110 & sexo == "Mujeres" ~ "Mujeres_60_mas",
   )) %>% 
   group_by(anio, categoria) %>% 
   summarise(personas = sum(personas)) %>% 
   pivot_wider(names_from = categoria, values_from = personas) %>% 
-  mutate(total = `Hombres-18-39` + `Hombres-40-59` + `Hombres-60+` + 
-           `Mujeres-18-39` + `Mujeres-40-59` + `Mujeres-60+`) %>% 
-  mutate(`Hombres-18-39` = `Hombres-18-39` / total * 100,
-         `Hombres-40-59` = `Hombres-40-59` / total * 100,
-         `Hombres-60+` = `Hombres-60+` / total * 100,
-         `Mujeres-18-39` = `Mujeres-18-39` / total * 100,
-         `Mujeres-40-59` = `Mujeres-40-59` / total * 100,
-         `Mujeres-60+` = `Mujeres-60+` / total * 100) %>%
-  pivot_longer(cols = `Hombres-18-39`:`Mujeres-60+`, 
+  mutate(total = `Hombres_18_39` + `Hombres_40_59` + `Hombres_60_mas` + 
+           `Mujeres_18_39` + `Mujeres_40_59` + `Mujeres_60_mas`) %>% 
+  mutate(`Hombres_18_39` = `Hombres_18_39` / total * 100,
+         `Hombres_40_59` = `Hombres_40_59` / total * 100,
+         `Hombres_60_mas` = `Hombres_60_mas` / total * 100,
+         `Mujeres_18_39` = `Mujeres_18_39` / total * 100,
+         `Mujeres_40_59` = `Mujeres_40_59` / total * 100,
+         `Mujeres_60_mas` = `Mujeres_60_mas` / total * 100) %>%
+  pivot_longer(cols = `Hombres_18_39`:`Mujeres_60_mas`, 
                names_to = "categoria", 
                values_to = "parametro") %>% 
   select(-total) %>% 
