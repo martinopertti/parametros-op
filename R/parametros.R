@@ -161,8 +161,8 @@ elec89 <- nacional_uy(eleccion = "1989",
        Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -180,8 +180,8 @@ elec94 <- nacional_uy(eleccion = "1994",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -199,8 +199,8 @@ elec99 <- nacional_uy(eleccion = "1999",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -218,8 +218,8 @@ elec04 <- nacional_uy(eleccion = "2004",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -237,8 +237,8 @@ elec09 <- nacional_uy(eleccion = "2009",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -256,8 +256,8 @@ elec14 <- nacional_uy(eleccion = "2014",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -275,8 +275,8 @@ elec19 <- nacional_uy(eleccion = "2019",
          Porcentaje = round(Porcentaje, 1)) %>%
   agrupar_partidos_uy(umbral = 5)  %>% 
   select(Fecha, Partido, Sigla, Porcentaje) %>%
-  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OP-BN")) %>% 
-  mutate(Partido = recode(Partido, "Otros Partidos" = "OP-BN")) %>% 
+  mutate(Partido = recode(Partido, "Voto Blanco/Anulado" = "OPBN")) %>% 
+  mutate(Partido = recode(Partido, "Otros Partidos" = "OPBN")) %>% 
   group_by(Partido) %>% 
   summarise(parametro = sum(Porcentaje),
             anio = first(Fecha))%>% 
@@ -298,7 +298,7 @@ ggplot(d_voto %>%
                                               "Partido Colorado",
                                               "Nuevo Espacio",
                                               "Cabildo Abierto",
-                                              "OP-BN"))), 
+                                              "OPBN"))), 
        aes(x = anio, y = parametro, fill = categoria)) +
   geom_col(alpha = .6) +
   geom_text(aes(label = round(parametro, digits = 1)),
@@ -314,7 +314,7 @@ ggplot(d_voto %>%
                                "Partido Colorado" = "firebrick2",
                                "Nuevo Espacio" = "forestgreen",
                                "Cabildo Abierto" = "gold3",
-                               "OP-BN" = "grey40")) +
+                               "OPBN" = "grey40")) +
   scale_x_continuous(breaks = seq(from = 1989, to = 2019, by = 5))
 
 ggsave("parametros-op/plots/voto.png", 
@@ -323,12 +323,8 @@ ggsave("parametros-op/plots/voto.png",
 
 ##  6. Merge parámetros  ====================================================
 base_parametros <- rbind(d_sexedad, d_poblacion, d_edu, d_voto) %>% 
-  mutate(parametro = round(parametro / 100, digits = 3))
+  mutate(parametro = round(parametro / 100, digits = 3)) 
 
 writexl::write_xlsx(base_parametros, "parametros-op/data/data_parametros.xlsx")
 save(base_parametros, file = "parametros-op/data/data_parametros.rda")
-
-
-
-
 
