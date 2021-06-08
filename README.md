@@ -1,7 +1,7 @@
 # parametros-op
 ### Parámetros para post-estratificación de encuestas de Opinión Pública en Uruguay (1993-2020)
 
-- El script `parametros.R` genera la base `data_parametros.rda` que contiene parametros poblacionales de sexo x edad, nivel educativo, departamento y voto anterior. Los parámetros son para uruguayos de 18 años o más, residentes en Uruguay. En el caso de voto anterior los parámetros representan a las personas que efectivamente votaron en la elección anterior.
+- El script `parametros.R` genera la base `data_parametros.rda` que contiene parametros poblacionales de sexo x edad, nivel educativo, departamento y voto anterior. Los parámetros son para personas de 18 años o más, residentes en Uruguay. En el caso de voto anterior los parámetros representan a las personas que efectivamente votaron en la elección anterior.
 
 ### Sexo x edad
 - La fuente son las proyecciones poblacionales del INE (basadas en los censos de 1996, 2004 y 2011)
